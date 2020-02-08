@@ -1,0 +1,24 @@
+language: node_js
+
+dist: trusty
+
+node_js:
+  - "node"
+
+dist: trusty
+
+sudo: required
+
+addons:
+  chrome: stable
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+script:
+  - yarn checking-style-format
+  - yarn checking-typescript-format
+  - commitlint-travis
+  - yarn test
